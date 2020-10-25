@@ -102,7 +102,7 @@
                 </div>
                 <div class="form-group">
                   <label for="edit_user">Edit_user:</label>
-                  <input type="text" class="form-control" value="Thao" readonly \">
+                  <input type="text" class="form-control" value="<%= session.getAttribute("username") %>" readonly \">
                 </div>
                 <div class="form-group">
                   <label for="edit_time">Edit_time:</label>

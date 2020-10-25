@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>MiniProject</title>
+    <title>QLNV</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -31,10 +31,19 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                     
-                            
-                                <li><a href="./Register\"><span class="glyphicon glyphicon-user"></span>
-                                 <%= request.getAttribute("name") %> </a></li>
-                                <li><a href="./Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        					<% String username = (String)session.getAttribute("username"); 
+        						if(username!=null){
+        					%>
+                                <li><a href=""><span class="glyphicon glyphicon-user"></span>
+                                 <%= session.getAttribute("username")
+                                 %>  </a></li>
+        						
+                                <li><a href="http://localhost:8080/QLNV/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        					<%} else { %>
+                                <li><a href="http://localhost:8080/QLNV/register"><span class="glyphicon glyphicon-registration-mark"></span> Register</a></li>
+                                <li><a href="http://localhost:8080/QLNV/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                <%} %>
+                                
                     </ul>
                 </div>
             </nav>

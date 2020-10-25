@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Account;
 
@@ -32,7 +33,8 @@ public class Login extends HttpServlet{
 		
 		Account a = new Account();
 		if(a.checkLogin(username, password)==true) {
-			
+			HttpSession session = req.getSession();
+			session.setAttribute("username", username);
 			resp.sendRedirect("http://localhost:8080/QLNV/home");
 		} else {
 			req.setAttribute("error", "<div class=\"alert alert-danger\" role=\"alert\">\r\n" + 
